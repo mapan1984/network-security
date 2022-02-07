@@ -120,6 +120,7 @@ TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 原因：OpenSSL 1.1.1k 之后，1024 bit 长度不再被是为安全
 
 3 种解决方法：
+
 1. 降低 openssl 版本到 1.1.1k 之下
 2. 修改 openssl 配置文件 `openssl.cnf`，将 `CipherString = DEFAULT@SECLEVEL=2` 改为 `CipherString = DEFAULT@SECLEVEL=1`(`sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/' /etc/ssl/openssl.cnf`)
 3. 重新生成证书
